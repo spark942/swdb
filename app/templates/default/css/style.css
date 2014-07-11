@@ -35,7 +35,7 @@ p,li {
 }
 
 a {
-	color: #EF1F2F;
+	color: #e74c3c;
 	text-decoration: none;
 }
 
@@ -87,8 +87,11 @@ section#news{
 }
 section#news article{
 	padding: 20px;
+	padding-bottom: 40px;
 	background-color: rgba(236, 240, 241,0.7);
 	border-radius: 10px;
+	margin-bottom: 20px;
+	position: relative;
 }
 section#news article p,
 section#news article ul{
@@ -98,8 +101,12 @@ section#news article ul{
 section#news article ul{
 	padding-left: 20px;
 }
+section#news article time{
+	position: absolute;
+	right: 20px;
+}
 
 footer{
-	height: 200px;
+	height: 100px;
 	background-color: rgba(0,0,0,0.7);
 }
