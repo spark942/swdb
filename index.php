@@ -27,6 +27,7 @@ if(file_exists('vendor/autoload.php')){
  *
  */
 	define('ENVIRONMENT', 'development');
+	define('CTRLR', '\controllers\\');
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
@@ -59,7 +60,17 @@ use \core\router as Router,
     \helpers\url as Url;
 
 //define routes
-Router::any('', '\controllers\welcome@index');
+Router::any('', CTRLR.'welcome@index');
+
+Router::get('/upload', CTRLR.'upload@form');
+Router::post('/upload', CTRLR.'upload@confirm');
+Router::post('/upload/save', CTRLR.'upload@save');
+
+Router::get('/hello', CTRLR.'hello@index');
+Router::get('/hello/(:any)', CTRLR.'hello@name');
+
+Router::get('/monsters', CTRLR.'monster@index');
+Router::post('/monster/add', CTRLR.'monster@add');
 
 //if no route found
 Router::error('\core\error@index');

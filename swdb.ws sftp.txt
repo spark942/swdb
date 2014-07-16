@@ -1,0 +1,2 @@
+swdb.ws sftp
+ssh-rsa 2048 c1:0b:b5:1d:57:cb:00:75:22:a5:6b:d3:bc:73:64:5a

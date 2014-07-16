@@ -29,16 +29,16 @@ class Config {
 		//database details ONLY NEEDED IF USING A DATABASE
 		define('DB_TYPE','mysql');
 		define('DB_HOST','localhost');
-		define('DB_NAME','dbname');
-		define('DB_USER','username');
-		define('DB_PASS','password');
-		define('PREFIX','smvc_');
+		define('DB_NAME','swdb');
+		define('DB_USER','root');
+		define('DB_PASS','');
+		define('PREFIX','swdb_');
 
 		//set prefix for sessions
-		define('SESSION_PREFIX','smvc_');
+		define('SESSION_PREFIX','swdb_');
 
 		//optionall create a constant for the name of the site
-		define('SITETITLE','V2.1');
+		define('SITETITLE','v0.1');
 
 		//set the default template
 		\helpers\session::set('template','default');
