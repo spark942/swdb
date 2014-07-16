@@ -49,11 +49,11 @@ form input {
 	margin: 2px;
 }
 
-table {width:98%; text-align:left; border:1px solid #DDDDDD; font-size:12px; color:#000;background:#fff; margin-bottom:10px;}
-table th {background-color:#E5E5E5; border:1px solid #BBBBBB; padding:3px 6px; font-weight:normal; color:#000;}
-table tr td {border:1px solid #DDDDDD; padding:5px 6px;}
-table tr.alt td {background-color:#E2E2E2;}
-table tr:hover {background-color:#F0F0F0; color:#000;}
+table {width:98%; text-align:left; border:1px solid #DDDDDD; font-size:12px; color:#ecf0f1;background:#2c3e50; margin-bottom:10px;}
+table th {background-color:#2980b9; border:1px solid #2980b9; padding:3px 6px; font-weight:normal; color:#ecf0f1;}
+table tr td {border:1px solid #2c3e50;  color:#ecf0f1; padding:5px 6px;}
+table tr.alt td {border:1px solid #34495e; background-color:#34495e;}
+table tr:hover td {border:1px solid #95a5a6; background-color:#95a5a6;}
 
 .pagination li {display:inline; margin-right:5px;}
 #logo{
@@ -116,4 +116,27 @@ footer{
  */
 section#monsters{
 	background-color: white;
+}
+section#monsters #addform,
+section#monsters #list{
+	padding: 20px;
+}
+section#monsters #list .app_version{
+	width: 80px;
+}
+section#monsters #list .monster_image{
+	padding: 0;
+	width: 36px;
+}
+section#monsters #list .monster_image img{
+	width: 44px;
+}
+section#monsters #list .grade{
+	width: 70px;
+}
+section#monsters #list .property_name{
+	width: 50px;
+}
+section#monsters #list .role_name{
+	width: 60px;
 }

@@ -33,6 +33,8 @@ class Config {
 		define('DB_USER','root');
 		define('DB_PASS','');
 		define('PREFIX','swdb_');
+		define('PREFIX_DB','swdb_');
+		define('PREFIX_WS','ws_');
 
 		//set prefix for sessions
 		define('SESSION_PREFIX','swdb_');
