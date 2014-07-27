@@ -9,6 +9,44 @@
 	</section>
 	<section id="news">
 		<article>
+			<h2>Summoners War Database Changelog</h2>
+			<p>
+				Future features (lower priority to higher)
+			</p>
+			<ul>
+				<li>elasticsearch</li>
+				<li>logged users can add comment</li>
+				<li>players can create an account to contribute</li>
+				<li>link normal monsters to their awaken mode</li>
+				<li>can filter skills by effects</li>
+				<li>list of all skills</li>
+				<li>add skills</li>
+			</ul><br />
+			<p>
+				Working on
+			</p>
+			<ul>
+				<li>a detailed page for each monster</li>
+				<li>add monster stats by level</li>
+			</ul><br />
+			<p>
+				Soon
+			</p>
+			<ul>
+				<li><span style="color:#e74c3c;">filter monsters by family, grade, property, role</span></li>
+			</ul><br />
+			<p>
+				version 0.1 (not public)
+			</p>
+			<ul>
+				<li>all data in the database is versioned</li>
+				<li>can add monsters</li>
+				<li>simple list of all monsters added</li>
+			</ul>
+			<br />
+			<time pubdate datetime="2014-07-16">16th July, 2014 by Hayenn</time>
+		</article>
+		<article>
 			<h2>We need your help!</h2>
 			<p>
 				We are going to make a tool that can analyze your screenshot and extract the data.<br />

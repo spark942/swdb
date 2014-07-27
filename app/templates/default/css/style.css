@@ -7,9 +7,34 @@ body{
 	font-family: 'Lato', sans-serif;
 	background-color: #2c3e50;
 }
+header{
+	position: fixed;
+	width: 100%;
+	top: 0;
+}
+header nav{
+	width: 100%;
+	background-color: #3498db;
+	text-align: center;
+}
+header nav ul{
+	margin: 0;
+	padding: 4px;
+}
+header nav ul li{ 
+	list-style-type: none; 
+	display: inline;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+header nav ul li a{ 
+	color: #f1c40f;
+	font-weight: 700;
+}
 #wrapper {
 	margin:auto;
 	width:960px;
+	margin-top: 36px;
 }
 
 
@@ -112,8 +137,10 @@ footer{
 }
 
 /*
- *	Monster 
+ *	Monsters
+ *  List 
  */
+
 section#monsters{
 	background-color: white;
 }
@@ -121,12 +148,14 @@ section#monsters #addform,
 section#monsters #list{
 	padding: 20px;
 }
+/* list view*/
 section#monsters #list .app_version{
 	width: 80px;
 }
 section#monsters #list .monster_image{
 	padding: 0;
 	width: 36px;
+	line-height: 8px;
 }
 section#monsters #list .monster_image img{
 	width: 44px;
@@ -139,4 +168,161 @@ section#monsters #list .property_name{
 }
 section#monsters #list .role_name{
 	width: 60px;
+}
+/* game view */
+
+section#monsters #list #view_game{
+	background-color: #CCAA50;
+	width: 790px;
+	padding: 20px;
+}
+section#monsters #list .monsters_list_game_icon{
+	display: inline-block;
+	width: 96px;
+	height: 96px;
+	margin-bottom: 3px;
+	text-shadow: -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000;
+}
+
+/*
+ *	Monster
+ */
+
+section#monster{
+	padding: 20px;
+	background-color: white;
+}
+section#monster #img{
+	border-color: #B59C48;
+	border-spacing: 5px;
+	border-style: solid;
+	width: 96px;
+	height: 96px;
+	display: inline-block;
+}
+section#monster #img img{
+	width: 96px;
+	height: 96px;
+}
+section#monster #info{
+	padding: 20px;
+	margin-right: 200px;
+	display: inline-block;
+}
+section#monster #info h1{
+	font-size: 2em;
+}
+section#monster #info h1,
+section#monster #info h2,
+section#monster #info hr{
+	margin: 0;
+	padding: 0;
+}
+section#monster #skills,
+section#monster #stats,
+section#monster #runes,
+section#monster #family{
+	margin-bottom: 20px;
+}
+section#monster #skills h2,
+section#monster #stats h2,
+section#monster #runes h2,
+section#monster #family h2{
+	margin: 0;
+	padding: 0;
+}
+section#monster #skills,
+section#monster #stats{
+	display: inline-table;
+	width: 457px;
+	height: 350px;
+}
+section#monster #skills{
+	margin: 0;
+}
+section#monster #skills .skill{
+	margin: 1px;
+	margin-bottom: 2px;
+	padding: 4px;
+	background-color: #2C3E50;
+	color: white;
+}
+section#monster #skills .skill div{
+	margin: 0;
+	padding: 0;
+	display: inline-table;
+	width: 220px;
+}
+section#monster #skills .skill div table{
+	margin: 0;
+	padding: 0;
+	height: 80px;
+	width: 223px;
+}
+section#monster #skills .skill div thead > tr,
+section#monster #skills .skill div tbody{
+	display:block;
+}
+section#monster #skills .skill div tbody{
+	height: 80px;
+	overflow: auto; 
+}
+section#monster #skills .skill div tbody td{
+	height: auto;
+	padding: 0;
+	margin: 0;
+}
+section#monster #skills .skill div tbody td.skill_level{
+	width: auto;
+}
+section#monster #skills .skill div tbody td.skill_upgrade_bonus{
+	width: 168px;
+}
+
+
+
+section#monster #stats table{
+	height: 302px;
+}
+section#monster #stats thead > tr,
+section#monster #stats tbody{
+	display:block;
+}
+section#monster #stats tbody{
+	height: 302px;
+	overflow: auto; 
+}
+section#monster #stats .stat_grade{ width: 70px; }
+section#monster #stats .stat_level{ width: 36px; }
+section#monster #stats .stat_hp{ width: 64px; }
+section#monster #stats .stat_atk{ width: 52px; }
+section#monster #stats .stat_def{ width: 52px; }
+section#monster #stats .stat_spd{ width: 52px; }
+
+section#monster #runes{
+
+}
+
+section#monster #family{
+
+}
+section#monster #family .family_member{
+	width: 450px;
+	background-color: #2C3E50;
+	color: white;
+	height: 50px;
+	display: inline-block;
+}
+section#monster #family .family_member .fmember_image{
+	width: 50px;
+	height: 50px;
+	background-size: 50px;
+	display: inline-table;
+}
+section#monster #family .family_member .fmember_info{
+	display: inline-table;
+	vertical-align: top;
+}
+section#monster #family .family_member .fmember_info a{
+	color: #2ecc71;
 }

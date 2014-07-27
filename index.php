@@ -62,15 +62,17 @@ use \core\router as Router,
 //define routes
 Router::any('', CTRLR.'welcome@index');
 
+Router::get('/koutiaonapnap', CTRLR.'user@setfakesession');
+
 Router::get('/upload', CTRLR.'upload@form');
 Router::post('/upload', CTRLR.'upload@confirm');
 Router::post('/upload/save', CTRLR.'upload@save');
 
-Router::get('/hello', CTRLR.'hello@index');
-Router::get('/hello/(:any)', CTRLR.'hello@name');
-
 Router::get('/monsters', CTRLR.'monster@index');
+Router::get('/monsters/(:num)/(:num)', CTRLR.'monster@index');
+
 Router::post('/monster/add', CTRLR.'monster@add');
+Router::get('/monster/(:all)', CTRLR.'monster@show');
 
 //if no route found
 Router::error('\core\error@index');

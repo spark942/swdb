@@ -22,9 +22,28 @@ class Monster extends \core\controller{
 	/**
 	 * define page title and load template files
 	 */
-	public function index(){	
+	public function index($action = null, $value = null){	
 
-		$data['title'] = 'swdb.ws';
+		if (!isset($_SESSION['pref']['monsters']['view'])) {
+			$_SESSION['pref']['monsters']['view'] = 1;
+		}
+		if (!isset($_SESSION['pref']['monsters']['filter'])) {
+			$_SESSION['pref']['monsters']['filter'] = 0;
+		}
+
+		if (($action != null) && ($value != null)) {
+			/* set new view */
+			if ($action == 0){
+				$_SESSION['pref']['monsters']['view'] = $value;
+			}
+			/* set new filter */
+			else if ($action == 1){
+				$_SESSION['pref']['monsters']['filter'] = $value;
+			}
+		}
+
+
+		$data['title'] = 'SWDB.WS Monsters';
 
 		$sw = new SWModel();
 		$data['sw']['app_versions'] = $sw->versions("DESC");
@@ -45,11 +64,11 @@ class Monster extends \core\controller{
 		var_dump($_POST);
 
 		$monster = new MonsterModel();
-		$exist = $monster->exist($_POST['name'], $_POST['monster_property']);
+		$exist = $monster->exist(addslashes($_POST['name']), $_POST['monster_property']);
 		if (empty($exist)){
 			$data['msg'] = 'Ok, the monster has been added to the table, you can back to the add form';
 			$res = $monster->insertNew(
-				$_POST['name'],
+				addslashes($_POST['name']),
 				$_POST['app_version'],
 				$_POST['monster_family'],
 				$_POST['monster_grade'],
@@ -64,12 +83,18 @@ class Monster extends \core\controller{
 		}
 		var_dump($data);
 	}
-	public function name($name){	
+	public function show($absname){	
+		$monster = new MonsterModel();
+		$show_monster = $monster->findByAbsName($absname);
+		$data['title'] = $absname.' swdb.ws';
+		$data['rel_image'] = $show_monster[0]->monster_image;
 
-		$data['title'] = $name.' swdb.ws';
+		$data['monster']['show'] = $show_monster;
+		$data['monster']['show']['family'] = $monster->findByFamilyId($show_monster[0]->family_id);
+
 
 		View::rendertemplate('header',$data);
-		View::render('welcome/welcome',$data);
+		View::render('monster/show',$data);
 		View::rendertemplate('footer',$data);
 	}
 }

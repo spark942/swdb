@@ -22,7 +22,7 @@ class Welcome extends \core\controller{
 	 */
 	public function index(){	
 
-		$data['title'] = 'Welcome';
+		$data['title'] = 'Welcome to SWDB.WS';
 
 		View::rendertemplate('header',$data);
 		View::render('welcome/welcome',$data);

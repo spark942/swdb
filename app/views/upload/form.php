@@ -9,32 +9,16 @@
 	</section>
 	<section id="news">
 		<article>
-			<h2>We need your help!</h2>
-			<p>
-				We are going to make a tool that can analyze your screenshot and extract the data.<br />
-				We also gonna use all the data in the google document.<br />
-				The data will be added to our database and provide statistics about the game for everyone.<br />
-				<br />
-				We need
-			</p>
-			<ul>
-				<li>developpers (PHP, javascript, ajax)</li>
-				<li>volunteers for uploading a lot of ingame screenshot</li>
-				<li>you to share this project</li>
-			</ul>
-			<br />
-			<p>
-				If you are interested send an e-mail at <a href="mailto:contact@swdb.ws">contact@swdb.ws</a>.
-			</p>
-			<time pubdate datetime="2014-07-11">11th July, 2014 by Hayenn</time>
-		</article>
-		<article>
-			<h2>Contribute the doc</h2>
-			<p>
-				<a href="https://docs.google.com/spreadsheets/d/19Brq6YETJ1J2zNvFFjxbgEc2lbjTWwnC7RB3vE407TQ/edit?usp=sharing">Summoners War Guide, Google document by fans</a><br />
-				We need some people to fill this google document, contact me at <a href="mailto:contact@swdb.ws">contact@swdb.ws</a> if you want to collaborate.
-			</p>
-			<time pubdate datetime="2014-07-11">11th July, 2014 by Hayenn</time>
+			<h2>Upload image</h2>
+			<form enctype="multipart/form-data" action="../../../../../upload/save" method="post">
+				Nom du monstre <input type="text" name="monster_name" ><br />
+				Fire Screen <input type="file" name="fire" > <input type="text" name="monster_name_fire" ><br />
+				Water Screen <input type="file" name="water" > <input type="text" name="monster_name_water" ><br />
+				Wind Screen <input type="file" name="wind" > <input type="text" name="monster_name_wind" ><br />
+				Light Screen <input type="file" name="light" > <input type="text" name="monster_name_light" ><br />
+				Dark Screen <input type="file" name="dark" > <input type="text" name="monster_name_dark" ><br />
+				<input type="submit" value="Submit">
+			</form>
 		</article>
 	</section>
 	<footer>

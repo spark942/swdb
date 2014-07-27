@@ -8,11 +8,12 @@
 
 	</section>
 	<section id="monsters">
-		<section id="addform">
+	<?php 
+		if (isset($_SESSION['user_level']) && ($_SESSION['user_level'] >= 50)) {
+			?>
+			<section id="addform">
 			<h1>Add a new monster</h1>
 			<form name="newmonster" action="../../../../../monster/add" method="post">
-			Name: 
-			<input type="text" name="name"><br />
 			Summoners War version: 
 			<select name="app_version">
 				<?php 
@@ -21,11 +22,13 @@
 				}
 				?>
 			</select> <br />
-			Monster family: 
-			<select name="monster_family">
+			Monster Property:
+			<select name="monster_property">
 				<?php 
-				foreach ($data['monster']['families'] as $key => $fdata) {
-					echo '<option value="'.$fdata->id.'">'.$fdata->name.'</option>';
+				foreach ($data['monster']['properties'] as $key => $pdata) {
+					if ($pdata->id >= 5) {
+						echo '<option value="'.$pdata->id.'">'.$pdata->name.'</option>';
+					}
 				}
 				?>
 			</select> <br />
@@ -33,15 +36,19 @@
 			<select name="monster_grade">
 				<?php 
 				foreach ($data['monster']['grades'] as $key => $gdata) {
-					echo '<option value="'.$gdata->id.'" style="background-color: '.$gdata->special_name_color.'">'.$gdata->name.' - '.$gdata->description.'</option>';
+					if ($gdata->id >= 1){
+						echo '<option value="'.$gdata->id.'" style="background-color: '.$gdata->special_name_color.'">'.$gdata->name.' - '.$gdata->description.'</option>';
+					}
 				}
 				?>
 			</select> <br />
-			Monster Property:
-			<select name="monster_property">
+			Name: 
+			<input type="text" name="name" autofocus><br />
+			Monster family: 
+			<select name="monster_family">
 				<?php 
-				foreach ($data['monster']['properties'] as $key => $pdata) {
-					echo '<option value="'.$pdata->id.'">'.$pdata->name.'</option>';
+				foreach ($data['monster']['families'] as $key => $fdata) {
+					echo '<option value="'.$fdata->id.'">'.$fdata->name.'</option>';
 				}
 				?>
 			</select> <br />
@@ -56,67 +63,22 @@
 			<input type="submit" value="Submit">
 			</form> 
 		</section>
+			<?php
+		}
+	?>
+		
+
 		<section id="list">
-			<h1>Monster List</h1>
-			<table>
-				<thead>
-					<tr>
-						<th>Version added</th>
-						<th>Image</th>
-						<th>Name</th>
-						<th>Base grade</th>
-						<th>Property</th>
-						<th>Role</th>
-						<th>Family</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php 
-					$count = 0;
-					foreach ($data['monster']['list'] as $key => $value) {
-						?>
-						<tr class="<?php echo (++$count%2 ? "reg" : "alt"); ?>">
-							<td class="app_version">
-							<?php 
-							echo '' . $value->app_version . '';
-							?>
-							</td>
-							<td class="monster_image">
-							<?php 
-							echo '<img src="' . $value->monster_image . '" >';
-							?>
-							</td>
-							<td class="monster_name">
-							<?php 
-							echo '' . $value->monster_name . '';
-							?>
-							</td>
-							<td class="grade">
-							<?php 
-							echo '<span style="color: ' . $value->grade_color . ';">' . $value->grade_special_name . '</span>';
-							?>
-							</td>
-							<td class="property_name">
-							<?php 
-							echo '' . $value->property_name . '';
-							?>
-							</td>
-							<td class="role_name">
-							<?php 
-							echo '' . $value->role_name . '';
-							?>
-							</td>
-							<td class="family_name">
-							<?php 
-							echo '' . $value->family_name . '';
-							?>
-							</td>
-						</tr>
-						<?php 
-					}
-					?>
-				</tbody>
-			</table>
+			<h1>Monster List (<?php echo count($data['monster']['list']); ?>)</h1>
+			<div>Views : <a href="../../../../../../monsters/0/1">List</a> | <a href="../../../../../../monsters/0/0">Game</a></div>
+			<?php 
+				if ($_SESSION['pref']['monsters']['view'] == 0) {
+					include('view_game.php');
+				}
+				else{
+					include('view_list.php');
+				}
+			?>
 		</section>
 	</section>
 	<footer>
