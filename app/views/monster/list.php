@@ -9,7 +9,7 @@
 	</section>
 	<section id="monsters">
 	<?php 
-		if (isset($_SESSION['user_level']) && ($_SESSION['user_level'] >= 50)) {
+		if (isset($_SESSION['USER']['STAT']) && ($_SESSION['USER']['STAT']['level'] >= 50)) {
 			?>
 			<section id="addform">
 			<h1>Add a new monster</h1>
@@ -36,7 +36,7 @@
 			<select name="monster_grade">
 				<?php 
 				foreach ($data['monster']['grades'] as $key => $gdata) {
-					if ($gdata->id >= 1){
+					if ($gdata->id >= 18){
 						echo '<option value="'.$gdata->id.'" style="background-color: '.$gdata->special_name_color.'">'.$gdata->name.' - '.$gdata->description.'</option>';
 					}
 				}

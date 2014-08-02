@@ -213,7 +213,162 @@
 
 		<section id="runes">
 			<h2>Runes combinations</h2>
-			<p>You must be logged to share your combinations !</p>
+			<?php 
+				if (isset($_SESSION['USER']['STAT']['level'])){
+					if ($_SESSION['USER']['STAT']['level'] >= 1){
+						include('show_addruneset.php');
+					}
+					else{
+						echo '<p>You must be level 1 or above to add a new rune set</p>';
+					}
+				}
+				else{
+					echo '<p>You must be logged to share your combinations !</p>';
+				}
+			?>
+			<section id="runesets">
+				<?php 
+					if (!empty($data['rune']['combinations'])) {
+						foreach ($data['rune']['combinations'] as $key => $cdata) {
+							if ($cdata->score > -500){
+							?>
+								<article id="runeset_<?php echo $cdata->id; ?>" class="runecombination">
+									<span class="set_name"><?php echo $cdata->set_name; ?></span>&nbsp;&nbsp;
+									added&nbsp;by&nbsp;&nbsp;<span class="username"><?php echo $cdata->username; ?></span>
+									&nbsp;<span class="user_reputation"><?php echo $cdata->user_reputation; ?>&nbsp;<i class="fa fa-star"></i></span>
+									&nbsp;&nbsp;&nbsp;<span class="app_version">(version <?php echo $cdata->app_version; ?>)</span>
+									<br />
+									<div class="rc_info">
+										<div class="rc_score">
+											<table>
+												<tbody>
+													<tr>
+														<th colspan="2"><h2>Score</h2></th>
+													</tr>
+													<tr>
+														<th class="score" rowspan="2"><span id="score<?php echo $cdata->id; ?>"><?php echo $cdata->score; ?></span></th>
+														<td class="score_up"><span id="scoreup<?php echo $cdata->id; ?>"><?php echo $cdata->up; ?></span>&nbsp;<i class="fa fa-thumbs-up"></i></td>
+													</tr>
+													<tr>
+														<td class="score_down"><span id="scoredown<?php echo $cdata->id; ?>"><?php echo $cdata->down; ?></span>&nbsp;<i class="fa fa-thumbs-down"></i></td>
+													</tr>
+													<?php 
+													if (isset($_SESSION['USER']) && ($cdata->user_id != $_SESSION['USER']['id'])) {
+														?>
+															<tr>
+															<th class="b_vote" colspan="2">
+																<button 
+																	id="plus10-<?php echo $cdata->id; ?>" 
+																	class="plus"
+																	<?php if($_SESSION['USER']['STAT']['pollstone'] < (10 * $_SESSION['USER']['STAT']['upvotepollstonecostperpoint'])){echo 'disabled="disabled"';} ?>
+																	onclick="vote_rune('#plus10-<?php echo $cdata->id; ?>')"
+																	>
+																	<span class="amount">+10</span>
+																	<div class="vote_tooltip">
+																		Consume&nbsp;<span class="pollstone"><?php echo 10 * $_SESSION['USER']['STAT']['upvotepollstonecostperpoint']; ?>&nbsp;<i class="fa fa-ge"></i></span>
+																	</div>
+																</button>
+																<button 
+																	id="plus1-<?php echo $cdata->id; ?>" 
+																	class="plus"
+																	<?php if($_SESSION['USER']['STAT']['pollstone'] < (1 * $_SESSION['USER']['STAT']['upvotepollstonecostperpoint'])){echo 'disabled="disabled"';} ?>
+																	onclick="vote_rune('#plus1-<?php echo $cdata->id; ?>')"
+																	>
+																	<span class="amount">+1</span>
+																	<div class="vote_tooltip">
+																		Consume&nbsp;<span class="pollstone"><?php echo 1 * $_SESSION['USER']['STAT']['upvotepollstonecostperpoint']; ?>&nbsp;<i class="fa fa-ge"></i></span>
+																	</div>
+																</button>
+																<button 
+																	id="less1-<?php echo $cdata->id; ?>" 
+																	class="less" 
+																	<?php if($_SESSION['USER']['STAT']['pollstone'] < (1 * $_SESSION['USER']['STAT']['downvotepollstonecostperpoint'])){echo 'disabled="disabled"';} ?>
+																	onclick="vote_rune('#less1-<?php echo $cdata->id; ?>')"
+																	>
+																	<span class="amount">-1</span>
+																	<div class="vote_tooltip">
+																		Consume&nbsp;<span class="pollstone"><?php echo 1 * $_SESSION['USER']['STAT']['downvotepollstonecostperpoint']; ?>&nbsp;<i class="fa fa-ge"></i></span>
+																	</div>
+																</button>
+																<button 
+																	id="less10-<?php echo $cdata->id; ?>" 
+																	class="less" 
+																	<?php if($_SESSION['USER']['STAT']['pollstone'] < (10 * $_SESSION['USER']['STAT']['downvotepollstonecostperpoint'])){echo 'disabled="disabled"';} ?>
+																	onclick="vote_rune('#less10-<?php echo $cdata->id; ?>')"
+																	>
+																	<span class="amount">-10</span>
+																	<div class="vote_tooltip">
+																		Consume&nbsp;<span class="pollstone"><?php echo 10 * $_SESSION['USER']['STAT']['downvotepollstonecostperpoint']; ?>&nbsp;<i class="fa fa-ge"></i></span>
+																	</div>
+																</button>
+															</th>
+														</tr>
+														<?php
+													}
+													?>
+													
+												</tbody>
+											</table>
+										</div>
+										<div class="rc_desc"><p class="set_desc"><?php echo $cdata->set_desc; ?></p></div>
+										<div class="rc_rune">
+											<table>
+												<tbody>
+													<tr>
+														<th>Rune&nbsp;(1)</th>
+														<th>Rune&nbsp;(2)</th>
+														<th>Rune&nbsp;(3)</th>
+														<th>Rune&nbsp;(4)</th>
+														<th>Rune&nbsp;(5)</th>
+														<th>Rune&nbsp;(6)</th>
+													</tr>
+													<tr>
+														<td><?php echo $cdata->set1_name; ?></td>
+														<td><?php echo $cdata->set2_name; ?></td>
+														<td><?php echo $cdata->set3_name; ?></td>
+														<td><?php echo $cdata->set4_name; ?></td>
+														<td><?php echo $cdata->set5_name; ?></td>
+														<td><?php echo $cdata->set6_name; ?></td>
+													</tr>
+													<tr>
+														<td><?php echo $cdata->p1_name; ?></td>
+														<td><?php echo $cdata->p2_name; ?></td>
+														<td><?php echo $cdata->p3_name; ?></td>
+														<td><?php echo $cdata->p4_name; ?></td>
+														<td><?php echo $cdata->p5_name; ?></td>
+														<td><?php echo $cdata->p6_name; ?></td>
+													</tr>
+													<tr>
+														<th colspan="3">Suitable Secondary Stats</th>
+														<th colspan="3">Not suitable Secondary Stats</th>
+													</tr>
+													<tr>
+														<td style="color:#2ecc71;" colspan="3">
+															<?php if(!empty($cdata->ss1_name)){echo $cdata->ss1_name .'&nbsp;&nbsp;';} ?> 
+															<?php if(!empty($cdata->ss2_name)){echo $cdata->ss2_name .'&nbsp;&nbsp;';} ?>
+															<?php echo $cdata->ss3_name; ?>
+														</td>
+														<td style="color:#e74c3c;" colspan="3">
+															<?php if(!empty($cdata->nss1_name)){echo $cdata->nss1_name .'&nbsp;&nbsp;';} ?> 
+															<?php if(!empty($cdata->nss2_name)){echo $cdata->nss2_name .'&nbsp;&nbsp;';} ?>
+															<?php echo $cdata->nss3_name; ?>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									
+								</article>
+							<?php
+							}
+						}
+					}
+					else{
+						echo '<p>No rune combination, be the first to add one!</p>';
+					}
+				?>		
+			</section>
 		</section>
 		<section id="family">
 			<h2><?php echo $data['monster']['show'][0]->family_name ?> family</h2>
@@ -238,7 +393,4 @@
 			?>
 		</section>
 	</section>
-	<footer>
-		
-	</footer>
 </div>

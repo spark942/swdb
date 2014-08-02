@@ -13,14 +13,36 @@
 		<?php
 	}
 	?>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
 </head>
 <body>
 <header>
-	<nav>
+	<nav id="website">
 		<ul>
+			<li class="navtitle">Website : </li>
 			<li><a href="../../../../../../../../">Home</a></li>
+			<li><a href="../../../../../../../../#">Last activities</a></li>
+			<li class="nav-comingsoon"><a href="../../../../../../../../#">Monster ladders</a></li>
+			<li class="nav-comingsoon"><a href="../../../../../../../../#">Guides</a></li>
+			<?php 
+			if (!isset($_SESSION['USER'])){
+				echo '<li><a href="../../../../../../../../sign">Sign up / Sign in</a></li>';
+			}
+			else{
+				echo '
+				<li id="logout"><a href="../../../../../../../../logout">Logout</a></li>';
+			}
+			?>
+		</ul>
+	</nav>
+	<nav id="database">
+		<ul>
+			<li class="navtitle">Database : </li>
 			<li><a href="../../../../../../../../monsters">Monsters (beta)</a></li>
-			<li><a href="../../../../../../../../#">Skills (coming soon)</a></li>
+			<li class="nav-comingsoon"><a href="../../../../../../../../#">Skills</a></li>
+			<li class="nav-comingsoon"><a href="../../../../../../../../#">Dungeons</a></li>
+			<li class="nav-comingsoon"><a href="../../../../../../../../#">Buildings</a></li>
 		</ul>
 	</nav>
 </header>

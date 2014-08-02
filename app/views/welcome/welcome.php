@@ -26,15 +26,26 @@
 				Working on
 			</p>
 			<ul>
-				<li>a detailed page for each monster</li>
 				<li>add monster stats by level</li>
 			</ul><br />
 			<p>
 				Soon
 			</p>
 			<ul>
+				<li>last activity (community activity)</li>
 				<li><span style="color:#e74c3c;">filter monsters by family, grade, property, role</span></li>
-			</ul><br />
+			</ul>
+			<br />
+			<p>
+				version 0.2 <span style="color:#16a085;">current version</span>
+			</p>
+			<ul>
+				<li>user gamification</li>
+				<li>a detailed page for each monster</li>
+				<li>create rune combinations for monsters</li>
+				<li>vote other summoner's combinations</li>
+			</ul>
+			<br />
 			<p>
 				version 0.1 (not public)
 			</p>
@@ -44,7 +55,7 @@
 				<li>simple list of all monsters added</li>
 			</ul>
 			<br />
-			<time pubdate datetime="2014-07-16">16th July, 2014 by Hayenn</time>
+			<time pubdate datetime="2014-08-01"> August 1, 2014 by Hayenn</time>
 		</article>
 		<article>
 			<h2>We need your help!</h2>
@@ -64,7 +75,7 @@
 			<p>
 				If you are interested send an e-mail at <a href="mailto:contact@swdb.ws">contact@swdb.ws</a>.
 			</p>
-			<time pubdate datetime="2014-07-11">11th July, 2014 by Hayenn</time>
+			<time pubdate datetime="2014-07-11">July 11, 2014 by Hayenn</time>
 		</article>
 		<article>
 			<h2>Contribute the doc</h2>
@@ -72,7 +83,7 @@
 				<a href="https://docs.google.com/spreadsheets/d/19Brq6YETJ1J2zNvFFjxbgEc2lbjTWwnC7RB3vE407TQ/edit?usp=sharing">Summoners War Guide, Google document by fans</a><br />
 				We need some people to fill this google document, contact me at <a href="mailto:contact@swdb.ws">contact@swdb.ws</a> if you want to collaborate.
 			</p>
-			<time pubdate datetime="2014-07-11">11th July, 2014 by Hayenn</time>
+			<time pubdate datetime="2014-07-11">July 11, 2014 by Hayenn</time>
 		</article>
 	</section>
 	<footer>

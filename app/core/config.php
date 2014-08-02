@@ -34,7 +34,8 @@ class Config {
 		define('DB_PASS','');
 		define('PREFIX','swdb_');
 		define('PREFIX_DB','swdb_');
-		define('PREFIX_WS','ws_');
+		define('PREFIX_WS','swdbws_');
+		define('SALT','koutiao');
 
 		//set prefix for sessions
 		define('SESSION_PREFIX','swdb_');
@@ -44,7 +45,7 @@ class Config {
 
 		//set the default template
 		\helpers\session::set('template','default');
-		
+
 	}
 
 }

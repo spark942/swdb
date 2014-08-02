@@ -7,10 +7,29 @@ body{
 	font-family: 'Lato', sans-serif;
 	background-color: #2c3e50;
 }
+input,textarea{
+	margin: 0;
+	padding: 5px;
+	font-family: 'Lato', sans-serif;
+}
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  width: 250px;
+  height: 20px;
+  border-radius: 2px;
+}
+/**
+ *  Header
+ */
 header{
 	position: fixed;
 	width: 100%;
 	top: 0;
+	z-index: 999999;
 }
 header nav{
 	width: 100%;
@@ -21,20 +40,144 @@ header nav ul{
 	margin: 0;
 	padding: 4px;
 }
+header nav#website ul{
+	padding-bottom: 0;
+}
+header nav#database ul{
+	padding-top: 0;
+}
 header nav ul li{ 
 	list-style-type: none; 
 	display: inline;
 	margin-left: 8px;
 	margin-right: 8px;
 }
-header nav ul li a{ 
-	color: #f1c40f;
+header nav ul li.navtitle{ 
+	color: #f1c40f !important;
 	font-weight: 700;
 }
+header nav ul li.nav-comingsoon{
+	opacity: 0.3;
+}
+header nav ul li#logout a{
+	color: #F1A9A0 !important;
+	font-weight: 700;
+}
+header nav ul li a{ 
+	color: #ecf0f1;
+	font-weight: 500;
+}
+/**header nav ul li.nav-comingsoon{
+	opacity: 0.3;
+}
+ *  Footer
+ */
+footer{
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+}
+footer nav#userbar{
+	width: 940px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 20px;
+	background-color: rgba(0,0,0,0.9);
+	padding: 10px;
+	color: #ecf0f1;
+	text-align: right;
+}
+footer nav ul{
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+footer nav ul li{ 
+	list-style-type: none; 
+	display: inline;
+	margin-left: 8px;
+	margin-right: 8px;
+	position: relative;
+}
+footer nav ul li#username{
+	color: #FDE3A7;
+	font-weight: 700;
+	position: absolute;
+	left: 0;
+}
+footer nav ul li#level{
+	color: #FFF;
+}
+footer nav ul li#pollstone{
+	color: #9b59b6;
+}
+footer nav ul li#reputation{
+	color: #f1c40f;
+}
+#userexp progress[value]{
+	width: 500px;
+  background-color: #34495e;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+
+}
+footer nav ul li div.user_expnumber{
+	display: none;
+	position: absolute;
+	width: 500px;
+	bottom: -1px;
+	right: 3px;
+	text-align: center;
+	color: #FFF;
+}
+footer nav ul li:hover .user_expnumber{
+	display: block;
+}
+footer nav ul li div.user_tooltip{
+	display: none;
+	position: absolute;
+	width: 200px;
+	bottom: 40px;
+	right: 0;
+	padding: 3px 8px 3px;
+	border-radius: 3px;
+	background-color: rgba(0,0,0,0.7);
+	color: #ecf0f1;
+	text-align: left;
+}
+footer nav ul li div.user_tooltip:after {
+		content: "";
+      position: absolute;
+      width: 0;	
+      height: 0;
+      border-width: 7px;
+      border-style: solid;
+      border-color: rgba(0,0,0,0.7) transparent transparent transparent;
+      bottom: -14px;
+      right: 20px;
+}
+footer nav ul li:hover .user_tooltip{
+	display: block;
+}
+footer nav ul li div.user_tooltip h2{
+	font-size: 1em;
+	margin:0;
+	padding:0;
+}
+footer nav ul li div.user_tooltip p{
+	font-size: 0.8em;
+	color: #ecf0f1;
+	margin:0;
+	padding:0;
+}
+/**
+ *  Wrapper
+ */
+
 #wrapper {
 	margin:auto;
 	width:960px;
-	margin-top: 36px;
+	margin-top: 48px;
 }
 
 
@@ -131,9 +274,54 @@ section#news article time{
 	right: 20px;
 }
 
-footer{
-	height: 100px;
-	background-color: rgba(0,0,0,0.7);
+
+/*
+ *  USERS
+ *	
+ */
+section#userforms{
+	padding: 20px;
+	background-color: #FFF;
+}
+section#userforms .userform{
+	margin:0;
+	padding: 20px;
+	width: 409px;
+	display: inline-table;
+}
+section#userforms .userform input{
+	width: 300px;
+	height: 25px;
+	line-height: 25px;
+	border: 1px solid #bdc3c7;
+	border-radius: 3px;
+}
+section#userforms .userform input[type=submit]{
+	width: 312px;
+	height: 40px;
+}
+section#userforms .userform input:focus{
+	border-color: #3498DB;
+}
+section#userforms #signup{
+	background-color: #f1c40f;
+}
+section#userforms #signup .formvalid{
+	font-size: 0.8em;
+}
+section#userforms #signin{
+	background-color: #1abc9c;
+	margin-left: 18px;
+}
+/*
+ *  DISQUS
+ *
+ */
+
+#disqus_thread{
+	background-color: #FFFFFF;
+	padding: 20px;
+	padding-bottom: 50px;
 }
 
 /*
@@ -148,9 +336,22 @@ section#monsters #addform,
 section#monsters #list{
 	padding: 20px;
 }
+section#monsters #list table th{
+	font-size: 1.66em;
+}
 /* list view*/
 section#monsters #list .app_version{
 	width: 80px;
+}
+section#monsters #list .monster_name,
+section#monsters #list .grade{
+	font-size: 1.56em !important;
+}
+
+section#monsters #list .property_name,
+section#monsters #list .role_name,
+section#monsters #list .family_name{
+	font-size: 1.3em !important;
 }
 section#monsters #list .monster_image{
 	padding: 0;
@@ -161,7 +362,7 @@ section#monsters #list .monster_image img{
 	width: 44px;
 }
 section#monsters #list .grade{
-	width: 70px;
+	width: 128px;
 }
 section#monsters #list .property_name{
 	width: 50px;
@@ -231,11 +432,214 @@ section#monster #family h2{
 	margin: 0;
 	padding: 0;
 }
+section#monster #runes{
+	overflow-x: hidden; 
+}
+section#monster #runes label#displayform{
+	cursor: pointer;
+}
+section#monster #runes #new_rune_set,
+input#newset{
+	display: none;
+}
+
+#newset:checked ~ #new_rune_set {
+  display: block !important;
+}
+section#monster #runes #new_rune_set input#new_set_name{
+	width: 350px;
+}
+section#monster #runes #new_rune_set textarea#new_set_desc{
+	margin-left: 2px;
+	width: 656px;
+	height: 70px;
+	resize: none;
+	margin-bottom: 5px;
+}
+section#monster #runes #new_rune_set input#new_set_submit{
+	margin-top: 0px;
+	vertical-align: top;
+	border: none;
+	border-radius: 3px;
+	background-color: #3498db;
+	height: 82px;
+	width: 225px;
+}
+section#monster #runes #new_rune_set input#new_set_submit:hover{
+	background-color: #2980b9;
+}
+section#monster #runes #new_rune_set #new_rune_table_left{
+	width: 500px;
+	display: inline-table;
+}
+section#monster #runes #new_rune_set #new_rune_table_right{
+	width: 400px;
+	display: inline-table;
+}
+section#monster #runes #new_rune_set .new_rune_set_pos{
+	width: 60px;
+}
+section#monster #runes #new_rune_set .new_rune_set_set{
+	width: 260px;
+}
+section#monster #runes #new_rune_set .new_rune_set_set select{
+	width: 260px;
+}
+section#monster #runes #new_rune_set .new_rune_set_stat{
+	width: 60px;
+}
+section#monster #runes #new_rune_set .new_rune_set_stat select{
+	width: 100px;
+}
+/**
+ *  MONSTER
+ *  RUNE COMBINATION LIST
+ */
+section#monster #runes #runesets {
+	width: 940px;
+	max-height: 1600px;
+	overflow-y: scroll;
+	margin-right: -20px;
+}
+section#monster #runes #runesets article.runecombination{
+	background-color: #2C3E50;
+	color: #ecf0f1;
+	padding: 4px;
+	margin-bottom: 4px;
+	font-size: 0.8em;
+}
+section#monster #runes #runesets article.runecombination .app_version{
+	color: #bdc3c7;
+	font-size: 0.8em;
+}
+section#monster #runes #runesets article.runecombination .set_name{
+	color: #e67e22;
+	font-size: 1.4em;
+	margin-left: 20px;
+}
+section#monster #runes #runesets article.runecombination .username{
+	color: #FDE3A7;
+	font-size: 1em;
+}
+section#monster #runes #runesets article.runecombination .user_reputation{
+	color: #F1C40F;
+}
+section#monster #runes #runesets article.runecombination .rc_info{
+	width: 100%;
+	position: relative;
+	margin-top: 8px;
+}
+section#monster #runes #runesets article.runecombination .rc_info .rc_score,
+section#monster #runes #runesets article.runecombination .rc_info .rc_desc,
+section#monster #runes #runesets article.runecombination .rc_info .rc_rune{
+	display: inline-block;
+	vertical-align: top;
+}
+section#monster #runes #runesets article.runecombination .rc_info .rc_score{
+	width: 130px;
+}
+section#monster #runes #runesets article.runecombination .rc_info .rc_score table{
+	margin-top: 0px;
+}
+section#monster #runes #runesets article.runecombination .rc_info .rc_score .score{
+	font-size: 1.6em;
+}
+section#monster #runes #runesets article.runecombination .rc_info .rc_score th{
+	text-align: center !important;
+}
+section#monster #runes #runesets article.runecombination .rc_info .rc_score th.b_vote{
+	margin:0;
+	padding: 0;
+	background-color: #2c3e50;
+	border: none;
+}
+section#monster #runes #runesets article.runecombination .rc_info .rc_score th.b_vote button{
+	margin:0;
+	padding: 0;
+	border: none;
+	width: 28px;
+	cursor: pointer;
+	color: #ecf0f1;
+	position: relative;
+}
+section#monster #runes #runesets 
+article.runecombination .rc_info .rc_score th.b_vote 
+button[disabled=disabled]{
+	background-color: #95a5a6 !important;
+	cursor: inherit;
+}
+section#monster #runes #runesets 
+article.runecombination .rc_info .rc_score th.b_vote 
+button.plus{
+	background-color: #27ae60;
+}
+button.less{
+	background-color: #c0392b;
+}
+article.runecombination .rc_info .rc_score th.b_vote 
+button .vote_tooltip{
+	display: none;
+	position: absolute;
+	width: 120px;
+	top: 30px;
+	left: 0;
+	padding: 3px 8px 3px;
+	border-radius: 3px;
+	background-color: rgba(0,0,0,0.9);
+	color: #ecf0f1;
+	text-align: center;
+}
+article.runecombination .rc_info .rc_score th.b_vote 
+button .vote_tooltip:after {
+		content: "";
+      position: absolute;
+      width: 0;	
+      height: 0;
+      border-width: 7px;
+      border-style: solid;
+      border-color: transparent transparent rgba(0,0,0,0.9) transparent;
+      top: -14px;
+      left: 10px;
+}
+article.runecombination .rc_info .rc_score th.b_vote 
+button:hover .vote_tooltip{
+	display: block;
+}
+article.runecombination .rc_info .rc_score th.b_vote 
+button .pollstone{
+	color: #9B59B6;
+}
+
+section#monster #runes #runesets article.runecombination .rc_info .rc_score .score_up,
+section#monster #runes #runesets article.runecombination .rc_info .rc_score .score_down{
+	width: 46px;
+	text-align: right !important;
+}
+section#monster #runes #runesets article.runecombination .rc_info .rc_desc{
+	width: 396px;
+	padding-left: 8px;
+	vertical-align: top;
+}
+section#monster #runes #runesets article.runecombination .rc_info .rc_desc .set_desc{
+	color: #bdc3c7;
+}
+section#monster #runes #runesets article.runecombination .rc_info .rc_rune table{
+	margin: 0;
+	padding: 0;
+}
+/**
+ *  MONSTER
+ *  SKILL/STATS
+ */
 section#monster #skills,
 section#monster #stats{
 	display: inline-table;
 	width: 457px;
 	height: 350px;
+	/*
+	COMING SOON
+	*/
+	display: none;
 }
 section#monster #skills{
 	margin: 0;

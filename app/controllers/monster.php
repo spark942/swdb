@@ -3,6 +3,7 @@ namespace controllers;
 use core\view as View;
 use models\summonerswar as SWModel;
 use models\monster as MonsterModel;
+use models\rune as RuneModel;
 /*
  * Welcome controller
  *
@@ -92,9 +93,13 @@ class Monster extends \core\controller{
 		$data['monster']['show'] = $show_monster;
 		$data['monster']['show']['family'] = $monster->findByFamilyId($show_monster[0]->family_id);
 
+		$rune = new RuneModel();
+		$data['rune']['stats'] = $rune->runeStats();
+		$data['rune']['combinations'] = $rune->getCombinationsByMonsterId($show_monster[0]->monster_id);
 
 		View::rendertemplate('header',$data);
 		View::render('monster/show',$data);
+		View::rendertemplate('disqus_comment',$data);
 		View::rendertemplate('footer',$data);
 	}
 }

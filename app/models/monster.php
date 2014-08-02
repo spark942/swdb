@@ -81,6 +81,7 @@ class Monster extends \core\model{
 		return $this->_db->select(
 			"SELECT `".PREFIX."app_version`.`version` AS 'app_version', 
 				`".PREFIX."monsters`.`id` AS 'monster_id', 
+				`".PREFIX."monsters`.`abs_name` AS 'absolute_monster_name', 
 				`".PREFIX."monsters`.`name` AS 'monster_name', 
 				`".PREFIX."monster_families`.`id` AS 'family_id', 
 				`".PREFIX."monster_families`.`name` AS 'family_name', 

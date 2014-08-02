@@ -1,8 +1,8 @@
 <table>
 				<thead>
 					<tr>
-						<th>Version added</th>
-						<th>Image</th>
+						<th>Update</th>
+						<th>Img</th>
 						<th>Name</th>
 						<th>Base grade</th>
 						<th>Property</th>

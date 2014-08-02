@@ -64,15 +64,26 @@ Router::any('', CTRLR.'welcome@index');
 
 Router::get('/koutiaonapnap', CTRLR.'user@setfakesession');
 
+//users
+Router::get('/sign', CTRLR.'user@index');
+Router::post('/signup', CTRLR.'user@signup');
+Router::post('/check_email', CTRLR.'user@checkemail');
+Router::post('/check_username', CTRLR.'user@checkname');
+Router::post('/signin', CTRLR.'user@signin');
+Router::get('/logout', CTRLR.'user@logout');
+//add
 Router::get('/upload', CTRLR.'upload@form');
 Router::post('/upload', CTRLR.'upload@confirm');
 Router::post('/upload/save', CTRLR.'upload@save');
-
+//monsters
 Router::get('/monsters', CTRLR.'monster@index');
 Router::get('/monsters/(:num)/(:num)', CTRLR.'monster@index');
 
 Router::post('/monster/add', CTRLR.'monster@add');
 Router::get('/monster/(:all)', CTRLR.'monster@show');
+Router::post('/rune/saveset', CTRLR.'rune@saveset');
+// vote
+Router::post('/vote/rune', CTRLR.'vote@rune');
 
 //if no route found
 Router::error('\core\error@index');
